@@ -76,9 +76,8 @@ module Paperclip
 
       if uploaded_file.is_a?(Paperclip::Attachment)
         uploaded_file = uploaded_file.to_file(:original)
-        close_uploaded_file = uploaded_file.respond_to?(:close)
       end
-
+      close_uploaded_file = uploaded_file.respond_to?(:close)
       return nil unless valid_assignment?(uploaded_file)
 
       uploaded_file.binmode if uploaded_file.respond_to? :binmode
